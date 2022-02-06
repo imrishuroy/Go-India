@@ -1,8 +1,6 @@
 import 'package:flutter/material.dart';
-
 import '/screens/home/bulk-deal/bloc/deal_bloc.dart' as bulk;
 import '/respositories/deal/deal_repository.dart';
-
 import 'block-deal/bloc/block_deal_bloc.dart';
 import 'block-deal/block_deal_tab.dart';
 import 'bulk-deal/bulk_deal_tab.dart';
@@ -11,11 +9,6 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 class HomeScreen extends StatelessWidget {
   static const String routeName = '/home';
   const HomeScreen({Key? key}) : super(key: key);
-
-  final List<Tab> myTabs = const [
-    Tab(text: 'Bulk Deal'),
-    Tab(text: 'Block Deal'),
-  ];
 
   @override
   Widget build(BuildContext context) {

@@ -1,7 +1,8 @@
 import 'package:flutter/material.dart';
+import '/widgets/show_list_items.dart';
 import 'bloc/block_deal_bloc.dart';
 import '/widgets/custom_button.dart';
-import '/screens/home/widgets/one_deal_card.dart';
+
 import 'package:flutter_bloc/flutter_bloc.dart';
 
 class BlockDealsTab extends StatefulWidget {
@@ -91,24 +92,9 @@ class _BlockDealsTabState extends State<BlockDealsTab> {
                 ),
                 const SizedBox(height: 15.0),
                 Expanded(
-                  child: state.searching
-                      ? ListView.builder(
-                          itemCount: state.searchDeals.length,
-                          itemBuilder: (context, index) {
-                            return OneDealCard(
-                              deal: state.searchDeals[index],
-                            );
-                          },
-                        )
-                      : ListView.builder(
-                          itemCount: state.deals.length,
-                          itemBuilder: (context, index) {
-                            return OneDealCard(
-                              deal: state.deals[index],
-                            );
-                          },
-                        ),
-                ),
+                    child: state.searching
+                        ? ShowListItems(deals: state.searchDeals)
+                        : ShowListItems(deals: state.deals)),
               ],
             );
           }
